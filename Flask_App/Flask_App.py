@@ -1,13 +1,12 @@
-from flask import Flask
-from flask import render_template, request, flash
-from BusinessLogic.Text_Summarizer import TextSummarization
 
-app = Flask(__name__)
-app.secret_key = '09619472778ffaeb028f86633fea2f45'
+from flask import render_template, request, flash, abort, Blueprint
+from Flask_App.BusinessLogic.Text_Summarizer import TextSummarization
+
+bp = Blueprint('Flask_App', __name__)
 
 
-@app.route('/', methods=['GET', 'POST'])
-def Index():
+@bp.route('/', methods=['GET', 'POST'])
+def index():
     summary = ''
     if request.method == 'POST':
         input_text = request.form['inputText']
@@ -27,4 +26,13 @@ def Index():
                       .format(summarize_techniques), 'success')
             except Exception as e:
                 flash(str(e), 'danger')
-    return render_template('Index.html', summary=summary)
+    return render_template('index.html', summary=summary)
+
+@bp.route('/render', methods=['GET', 'POST'])
+def render():
+    return render_template('render.html')
+
+@bp.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+

@@ -1,3 +1,14 @@
 body{
 margin: 10px !important;
 }
+
+.wizard{
+    width:100%;
+    display:flex;
+    text-align:center;
+}
+
+.widget{
+    margin:auto;
+    padding:10px;
+}

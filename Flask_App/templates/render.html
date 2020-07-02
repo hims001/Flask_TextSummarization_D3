@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block head %}
+<title>Flask - D3 Charts</title>
+{% endblock %}
+{% block main %}
+<div class="wizard">
+    <div class="widget">
+        <label>Top Flavors selector</label><br/>
+        <span>1</span>
+        <input type="range" id="filter-slider" value="0" min="1" max=""/>
+        <span class="limit"></span>
+    </div>
+    <div class="widget">
+        <label>Bar color selector</label><br/>
+        <input type="color" id="color-selector" value="#4682b4"/>
+    </div>
+</div>
+<div id="main-chart">
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="static/d3-chart.js"></script>
+{% endblock %}

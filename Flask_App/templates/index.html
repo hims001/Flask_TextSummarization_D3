@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+{% block head %}
+<title>Flask - Extractive Text Summarization</title>
+{% endblock %}
+{% block main %}
+<form action="{{ url_for('Flask_App.index') }}" method="post">
+    <div class="form-group">
+        <label for="inputText">Input Text</label>
+        <textarea class="form-control" id="inputText" name="inputText" placeholder="Enter huge text"
+                  rows="7"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="summarizeTechniques">Summarize using</label>
+        <select class="form-control" id="summarizeTechniques" name="summarizeTechniques">
+            <option>TextRank</option>
+            <option>Gensim</option>
+            <option>TextTeaser</option>
+        </select>
+    </div>
+    <button class="btn btn-success btn-block" type="submit">Summarize!</button>
+    <div class="form-group">
+        <label for="outputSummary">Summary</label>
+        <textarea class="form-control" id="outputSummary" rows="5">{{ summary }}</textarea>
+    </div>
+</form>
+{% endblock %}
