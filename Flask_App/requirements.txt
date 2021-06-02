@@ -28,5 +28,5 @@ smart-open==2.0.0
 textsummarization==0.0
 textteaser==0.3
 tqdm==4.46.1
-urllib3==1.25.9
+urllib3==1.26.5
 Werkzeug==1.0.1
